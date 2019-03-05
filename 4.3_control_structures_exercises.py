@@ -45,15 +45,12 @@ while i <= 15:
     print(i)
     i += 1
 
-
 # - Create a while loop that will count by 2's starting with 0 and ending at 100. Follow each number with a new line.
 i = 0
 while i <101:
     print(i)
     i=i+2
     '/n'
-
-
 
 # - Alter your loop to count backwards by 5's from 100 to -10.
 i = 100
@@ -76,15 +73,12 @@ while i < 1000000:
     i=i**2
     '/n'
 
-
 # - Write a loop that uses print to create the output shown below.
 i = 100
 while i >0:
     print(i)
     i = i -5
     '/n'
-
-
 
 # b. For Loops
 #     - Write some code that prompts the user for a number, then shows a multiplication table up through 10 for that number. For example, if the user enters 7, your program should output: 
@@ -103,7 +97,6 @@ for n in range (1, 11):
 # 7 x 8 = 56
 # 7 x 9 = 63
 # 7 x 10 = 70
-
 
 # Create a for loop that uses print to create the output shown below.
 i = 1 
@@ -130,11 +123,14 @@ for n in range(1,10):
 # except for the number the user entered.
 '''WORKS BUT I DID NOT USE A BREAK STATEMENT IN THE WHILE STATEMENT
 '''
+
+# step 1 keep asking the user for a number checking for valid input
 number = input('Number to skip is: ')
-print('\n') 
-while number.isdigit() == True and int(number)%2==0:
+
+while not number.isdigit() or int(number) <1 or int(number) > 50 or int(number)%2==0:
     number = input('Number to skip is: ')
 
+# step 2 print the number sequence according to input
 number = int(number)
 for n in range (1,51): 
     if n==int(number): 
@@ -143,6 +139,22 @@ for n in range (1,51):
     
     elif not n%2 == 0: 
         print('Here is an odd number: ', n) 
+
+
+
+# Second method for step 1 using a break statement
+# while True:
+#     number = input('Enter an odd number between 0-50: ')
+#     if number.isdigit() and 1 <= int(number) <= 50 and int(number) % 2 == 1:
+#         break
+# number = int(number)
+# for n in range (1,51): 
+#     if n==int(number): 
+#         print('Yikes! Skipping number: ',number) 
+#         continue
+    
+#     elif not n%2 == 0: 
+#         print('Here is an odd number: ', n) 
 
 
 # d. The input function can be used to prompt for input and use that input in your python code. 
@@ -197,6 +209,22 @@ for i in range(1,101):
         print(i) 
 
 
+# Method #2
+
+for n in range(1,101):
+    output = ''
+    if n%3 == 0:
+        output += 'Fizz'
+    if n%5 == 0:
+        output += 'Buzz'
+    if output == '':
+        print(n)
+    else:
+        print(output)
+
+    # we could also write this for the last two lines:
+    # print(n i output == '' else output)
+
 # 4. Display a table of powers.
 #     * Prompt the user to enter an integer.
 #     * Display a table of squares and cubes from 1 to the value entered.
@@ -226,21 +254,195 @@ print('\nHere is your table!\n\nnumber squared cubed \n -----  -----  -----')
 for n in range(1, int(users_integer)+1):  
     print('{0:<5d} | {1:<5d} | {2:<5d}'.format(n, n**2, n**3))
     continue
-    while input('Do you want to continue? Yes/No? ')=='No': 
-        break 
+
+while input('Do you want to continue? Yes/No? \n')=='Yes': 
+    users_integer = (input('What number would you like to go up to? ')) 
+    print('\nHere is your table!\n\nnumber squared cubed \n -----  -----  -----')
+    for n in range(1, int(users_integer)+1):  
+        print('{0:<5d} | {1:<5d} | {2:<5d}'.format(n, n**2, n**3))
+        continue
 
 
-# 3. Create a list of dictionaries where each dictionary represents a book that you have read. 
+#5. Convert given number grades into letter grades.
+
+# Prompt the user for a numerical grade from 0 to 100.
+# Display the corresponding letter grade.
+# Prompt the user to continue.
+# Assume that the user will enter valid integers for the grades.
+# The application should only continue if the user agrees to.
+# Grade Ranges:
+
+# A : 100 - 88
+# B : 87 - 80
+# C : 79 - 67
+# D : 66 - 60
+# F : 59 - 0
+
+user_grade = input('Please enter a grade from 0 to 100: ')
+if int(user_grade) >= 88:
+    print('A')
+if 80 <= int(user_grade) <= 87:
+    print('B')
+if 67 <= int(user_grade) <= 79:
+    print('C')
+if 60 <= int(user_grade) <= 66:
+    print('D')
+if int(user_grade) <=59:
+    print('F')
+
+
+while input('Do you wish to continue? Yes/No? ') == 'Yes':
+    user_grade = input('Please enter a grade from 0 to 100: ')
+    if int(user_grade) >= 88:
+        print('A')
+    if 80 <= int(user_grade) <= 87:
+        print('B')
+    if 67 <= int(user_grade) <= 79:
+        print('C')
+    if 60 <= int(user_grade) <= 66:
+        print('D')
+    if int(user_grade) <=59:
+        print('F')
+
+
+
+# more concise method, part a:
+# grade = int(input('Please enter a grade from 0 to 100: '))
+# if grade >= 88:
+#     print('A')
+# elif grade >= 80:
+#     print('B')
+# elif grade >= 67:
+#     print('C')
+# elif grade >= 60:
+#     print('B')
+# elif grade >= 0:
+#     print('F')
+
+#part b
+user_wants_to_continue = 'yes'
+while user_wants_to_continue == 'yes':
+    grade = int(input('Please enter a grade from 0 to 100: '))
+    if grade >= 88:
+        print('A')
+    elif grade >= 80:
+        print('B')
+    elif grade >= 67:
+        print('C')
+    elif grade >= 60:
+        print('B')
+    elif grade >= 0:
+        print('F')
+    user_wants_to_continue = input('Do you want to continue? ')
+
+# 5. Bonus
+# Edit your grade ranges to include pluses and minuses (ex: 99-100 = A+).
+
+
+user_grade = input('Please enter a grade from 0 to 100: ')
+if 99 <= int(user_grade) < 100:
+    print('A+')
+if 92<= int(user_grade) < 99:
+    print('A')
+if 90<= int(user_grade) < 92:
+    print('A-')
+if 88<= int(user_grade) < 90:
+    print('B+')
+if 82 <= int(user_grade) < 88:
+    print('B')
+if 80 <= int(user_grade) < 82:
+    print('B-')
+if 78 <= int(user_grade) < 80:
+    print('C+')
+if 72 <= int(user_grade) < 78:
+    print('C')
+if 70 <= int(user_grade) < 72:
+    print('C-')
+if 68 <= int(user_grade) < 70:
+    print('D+')
+if 62 <= int(user_grade) < 68:
+    print('D')
+if 60 <= int(user_grade) < 62:
+    print('D-')
+if int(user_grade) < 60:
+    print('F')
+
+while input('Do you wish to continue? Yes/No? ') == 'Yes':
+    user_grade = input('Please enter a grade from 0 to 100: ')
+    if 99 <= int(user_grade) < 100:
+        print('A+')
+    if 92<= int(user_grade) < 99:
+        print('A')
+    if 90<= int(user_grade) < 92:
+        print('A-')
+    if 88<= int(user_grade) < 90:
+        print('B+')
+    if 82 <= int(user_grade) < 88:
+        print('B')
+    if 80 <= int(user_grade) < 82:
+        print('B-')
+    if 78 <= int(user_grade) < 80:
+        print('C+')
+    if 72 <= int(user_grade) < 78:
+        print('C')
+    if 70 <= int(user_grade) < 72:
+        print('C-')
+    if 68 <= int(user_grade) < 70:
+        print('D+')
+    if 62 <= int(user_grade) < 68:
+        print('D')
+    if 60 <= int(user_grade) < 62:
+        print('D-')
+    if int(user_grade) < 60:
+        print('F')
+
+
+
+
+
+# 6. Create a list of dictionaries where each dictionary represents a book that you have read. 
 # Each dictionary in the list should have the keys title, author, and genre. 
 # Loop through the list and print out information about each book.
-books = [{'Title': "Bulletproof  Diet", 'Author': "Dave Asprey", 'Genre': "Health"},
-{'Title': "Reproductive Justice", 'Author': "Someone", 'Genre': "Nonfiction"},
-{'Title': "Bambi", 'Author': "Mickey Mouse", 'Genre': "Fiction"},
+books = [
+    {'Title': "Bulletproof  Diet", 'Author': "Dave Asprey", 'Genre': "Health"},
+
+    {'Title': "Reproductive Justice", 'Author': "Someone", 'Genre': "Nonfiction"},
+
+    {'Title': "Bambi", 'Author': "Mickey Mouse", 'Genre': "Fiction"},
 ]
 
-for features in books:
-    print(['Data'], 'Author', 'Genre')
+for book in books:
+    print(' ---------------------------- ')
+    print(' - title: %s' %book['Title'])
+    print(' - author: %s' %book['Author'])
+    print(' - genre: %s' %book['Genre'])
 
 
-# 4. Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
+# 6a. Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
 
+user_genre = input("Please enter a book genre: ")
+for book in books:
+    if book['Genre'] != user_genre:
+        continue
+    print(' ---------------------------- ')
+    print(' - title: %s' %book['Title'])
+    print(' - author: %s' %book['Author'])
+    print(' - genre: %s' %book['Genre'])
+
+
+# second problem with a list in genres:
+books = [
+    {'Title': "Bulletproof  Diet", 'Author': "Dave Asprey", 'Genre': ["Health", "Nonfiction"]},
+
+    {'Title': "Reproductive Justice", 'Author': "Someone", 'Genre': ["Nonfiction", "Women's Rights"]},
+
+    {'Title': "Bambi", 'Author': "Mickey Mouse", 'Genre': "Fiction"},
+]
+user_genre = input("Please enter a book genre: ")
+for book in books:
+    if user_genre not in book['Genre']:
+        continue
+    print(' ---------------------------- ')
+    print(' - title: %s' %book['Title'])
+    print(' - author: %s' %book['Author'])
+    print(' - genre: %s' %book['Genre'])
