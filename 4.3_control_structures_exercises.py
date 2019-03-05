@@ -123,60 +123,111 @@ for n in range(1,10):
 
 # c. break and continue
 
-# -Prompt the user for an odd number between 1 and 50. Use a loop and a break statement to continue prompting the user if they enter invalid input. (Hint: use the isdigit method on strings to determine this). Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
+# -Prompt the user for an odd number between 1 and 50. 
+# Use a loop and a break statement to continue prompting the user 
+# if they enter invalid input. (Hint: use the isdigit method on strings to determine this). 
+# Use a loop and the continue statement to output all the odd numbers between 1 and 50, 
+# except for the number the user entered.
+'''WORKS BUT I DID NOT USE A BREAK STATEMENT IN THE WHILE STATEMENT
+'''
+number = input('Number to skip is: ')
+print('\n') 
+while number.isdigit() == True and int(number)%2==0:
+    number = input('Number to skip is: ')
 
-# - Your output should look like this:
-
+number = int(number)
+for n in range (1,51): 
+    if n==int(number): 
+        print('Yikes! Skipping number: ',number) 
+        continue
+    
+    elif not n%2 == 0: 
+        print('Here is an odd number: ', n) 
 
 
 # d. The input function can be used to prompt for input and use that input in your python code. 
 # Prompt the user to enter a positive number and write a loop that counts from 0 to that number. 
 # (Hints: first make sure that the value the user entered is a valid number, 
 # also note that the input function returns a string, so you'll need to convert this to a numeric type.)
-# number = (input('Please input a positive number: '))
+number = (input('Please input a positive number: '))
 
-# if int(number) > 0:
-#     for n in range(0, int(number)+1):
-#         print(n)
+if int(number) > 0:
+    for n in range(0, int(number)+1):
+        print(n)
 
-# elif int(number) < 0:
-#     print(f"{number} is not a valid number!")
+elif int(number) < 0:
+    print(f"{number} is not a valid number!")
 
-# else: 
-#     print(f"{number} is not a number!")
+else: 
+    print(f"{number} is not a number!")
 
 
 # e. Write a program that prompts the user for a positive integer. 
 # Next write a loop that prints out the numbers from the number the user entered down to 1.
-# number = (input('Please input a positive number: '))
-# user_input = input('Please enter a positive number: ')
+number = (input('Please input a positive number: '))
+user_input = input('Please enter a positive number: ')
 
-# while not user_input.isdigit():
-#     user_input = input('Hey! Give me a positive number! ')
+while not user_input.isdigit():
+    user_input = input('Hey! Give me a positive number! ')
 
-# if int(user_input) > 0:
-#     for n in range(int(user_input), 0, -1):
-#         print(n)
+if int(user_input) > 0:
+    for n in range(int(user_input), 0, -1):
+        print(n)
 
-# elif int(user_input) < 0:
-#     print(f"{user} is not a valid number!")
-
-
+elif int(user_input) < 0:
+    print(f"{user} is not a valid number!")
 
 
 
+# 3. Fizzbuzz- One of the most common interview questions for entry-level programmers is the FizzBuzz test. 
+# Developed by Imran Ghory, the test is designed to test basic looping and conditional logic skills.
+#     * Write a program that prints the numbers from 1 to 100.
+#     * For multiples of three print "Fizz" instead of the number
+#     * For the multiples of five print "Buzz".
+#     * For numbers which are multiples of both three and five print "FizzBuzz".
+
+for i in range(1,101): 
+    if i%3 ==0 and i%5 ==0: 
+        print('FizzBuzz') 
+    elif i%5 == 0: 
+        print('Buzz') 
+    elif i%3 ==0: 
+        print('Fizz') 
+    else: 
+        print(i) 
 
 
+# 4. Display a table of powers.
+#     * Prompt the user to enter an integer.
+#     * Display a table of squares and cubes from 1 to the value entered.
+#     * Ask if the user wants to continue.
+#     * Assume that the user will enter valid data.
+#     * Only continue if the user agrees to.
+
+# users_integer = (input('What number would you like to go up to? '))
+
+# for n in range(1, int(users_integer)+1): 
+#     print(n**2, n**3)
+#     continue
+#     while input('Do you want to continue? Yes/No ')=='Yes':
+#         users_integer = (input('What number would you like to go up to? '))
 
 
+# users_integer = (input('What number would you like to go up to? ')) 
+# print('Here is your table! \n  number  squared  cubed   \n', (('-'*6)+' ' * 3))
+# for n in range(1, int(users_integer)+1):  
+#     print(f'{n}', '   |   ', n**2, '   |   ', n**3) 
+#     continue 
+#     if input('Do you want to continue? Yes/No ')=='Yes': 
+#         break 
 
-
-
-
-
-
-
-
+users_integer = (input('What number would you like to go up to? ')) 
+print('\nHere is your table!\n\nnumber squared cubed \n -----  -----  -----')
+for n in range(1, int(users_integer)+1):  
+    print('{0:<5d} | {1:<5d} | {2:<5d}'.format(n, n**2, n**3))
+    continue
+    while input('Do you want to continue? Yes/No? ')=='No': 
+        break 
 
 
 # 3. Create a list of dictionaries where each dictionary represents a book that you have read. 
