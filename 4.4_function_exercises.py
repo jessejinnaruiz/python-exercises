@@ -144,6 +144,8 @@ def cumsum(list_of_numbers):
 # 1. Create a function named twelveto24. It should accept a string in the format 10:45am or 4:30pm and return a string that is the representation of the time in a 24-hour format. 
 # Bonus write a function that does the opposite.
 
+
+
 # 2. Create a function named col_index. It should accept a spreadsheet column name, and return the index number of the column.
 #     * col_index('A') returns 1
 #     * col_index('B') returns 2
