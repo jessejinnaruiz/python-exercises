@@ -39,18 +39,30 @@ def show_grocery_list():
                 #         print(line)
 
 show_grocery_list()
-
+print('--------------')
 # Create a function named buy_item. It should accept the name of an item on the grocery 
 # list, and remove that item from the list.
 
+buy_item_list_formatted = []
+buy_items = []
+
 def buy_item(item):
         with open('my_grocery_list.txt') as f:
-                lines = f.read()
-                for line in lines:
-                        if item in lines:
-                                line.replace(item, '')
-                print(lines)
-                # for line in f.readlines():     
-                #         print(line)
+                lines = f.readlines()
+                # print(lines)
+                for element in lines:
+                        buy_item_list_formatted.append(element.rstrip())
+                for element in buy_item_list_formatted:
+                        if element == item:
+                                continue
+                        else:
+                                buy_items.append(element)
+                print(buy_items)
+                # print(lines)
+                # for line 
+                # f.write(buy_item_list_formatted)
+
 print('testing buy_item function ---------')
 buy_item('celery')
+
+# print(buy_items)
